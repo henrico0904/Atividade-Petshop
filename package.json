@@ -1,0 +1,21 @@
+{
+  "name": "petshop",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cls && nodemon server.js",
+    "studio": "npx prisma studio"
+  },
+  "keywords": [],
+  "author": "Henrico",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.16.3",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.16.3"
+  }
+}
