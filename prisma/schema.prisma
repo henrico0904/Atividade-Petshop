@@ -16,5 +16,5 @@ model Pets {
   idade         Int
   dono          String
 
-  @@map("bruxos")
+  @@map("pets")
 } 
