@@ -12,3 +12,14 @@ export const findById = async(id) => {
         where: { id: Number(id)}
     })
 }
+
+export const create = async (data) => {
+    return await prisma.pets.create({
+        data: {
+            nome: data.nome,
+            especie: data.especie,
+            idade: data.idade,
+            dono: data.dono,
+        }
+    })
+}
