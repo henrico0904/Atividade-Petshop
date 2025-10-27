@@ -23,3 +23,9 @@ export const create = async (data) => {
         }
     })
 }
+
+export const deletePet = async (id) => {
+    return await prisma.pets.delete({
+        where: { id: Number(id)}
+    })
+}
