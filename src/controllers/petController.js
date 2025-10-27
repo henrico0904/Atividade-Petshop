@@ -71,8 +71,8 @@ export const criar = async(req,res) => {
         }
 
         //verificar se a casa é válida
-        const especiesValidas = ['Cachorro', 'Gato', 'Passarinho', 'Peixe']
-        if(!especiesValidas.includes(casa)){
+        const especiesValidas = ['Cachorro', 'Gato', 'Pássaro', 'Peixe']
+        if(!especiesValidas.includes(especie)){
             return res.status(400).json({
                 erro: 'Espécie inválida',
                 especiesValidas
@@ -137,7 +137,7 @@ export const atualizar = async (req, res) => {
         }
 
         if (dados.especie) {
-            const especiesValidas = ['Cachorro', 'Gato', 'Passarinho', 'Peixe'];
+            const especiesValidas = ['Cachorro', 'Gato', 'Pássaro', 'Peixe'];
             if (!especiesValidas.includes(dados.especie)) {
                 return res.status(400).json({
                     erro: 'Espécie inválida!',
