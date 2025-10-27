@@ -29,3 +29,15 @@ export const deletePet = async (id) => {
         where: { id: Number(id)}
     })
 }
+
+export const update = async (id, data) => {
+    return await prisma.pets.update({
+        where: {id: Number(id)},
+        data: {
+            ...(data.nome && {nome: data.nome}),
+            ...(data.especie && {especie: data.especie}),
+            ...(data.idade && {idade: data.idade}),
+            ...(data.dono && {dono: data.dono}),
+        }
+    })
+}

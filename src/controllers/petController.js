@@ -121,3 +121,43 @@ export const apagar = async (req, res) => {
         })
     }
 }
+
+export const atualizar = async (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        const dados = req.body;
+
+        const petExiste = await PetModel.findById(id);
+
+        if (!petExiste) {
+            return res.status(404).json({
+                erro: 'Pet não encontrado com esse id',
+                id: id
+            })
+        }
+
+        if (dados.especie) {
+            const especiesValidas = ['Cachorro', 'Gato', 'Passarinho', 'Peixe'];
+            if (!especiesValidas.includes(dados.especie)) {
+                return res.status(400).json({
+                    erro: 'Espécie inválida!',
+                    especiesValidas
+                })
+            }
+        }
+
+        
+        const petAtualizado = await PetModel.update(id, dados);
+
+        res.status(200).json({
+            mensagem: 'Pet atualizado com sucesso',
+            pet: petAtualizado
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            erro: 'Erro ao atualizar Pets',
+            detalhes: error.message
+        })
+    }
+}
